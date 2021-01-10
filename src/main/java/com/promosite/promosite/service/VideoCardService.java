@@ -7,5 +7,6 @@ import java.util.List;
 public interface VideoCardService {
 
     List<VideoCard> findAll();
+    void create(VideoCard videoCard);
 
 }

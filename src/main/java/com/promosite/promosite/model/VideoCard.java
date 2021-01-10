@@ -4,6 +4,7 @@ import javax.persistence.*;
 
 @Entity(name = "video_card")
 public class VideoCard {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -37,9 +38,6 @@ public class VideoCard {
     private Integer videoMemoryBitRate;
 
     @Column
-    private  String maxResolution;
-
-    @Column
     private String technologySupport;
 
     @Column
@@ -64,12 +62,12 @@ public class VideoCard {
     private String manufacturer;
 
     @Lob
-    @Column(name="miniImage")
-    private byte[] miniImage;
+    @Column(name="previewImage")
+    private String previewImage;
 
     @Lob
-    @Column(name="fullImage")
-    private byte[] fullImage;
+    @Column(name="mainImage")
+    private String mainImage;
 
 
 }

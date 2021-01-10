@@ -4,13 +4,124 @@
     <meta charset="UTF-8">
     <title>Admin Panel</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 </head>
 <body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-<h1>ADMIN PANEL</h1>
-<form th:action="@{/logout}" method="post">
-    <input type="submit" value="Sign Out"/>
-</form>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+
+
+<div class="container">
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Sign Out" class="btn btn-primary btn-lg" style="width: 120px;"/>
+    </form>
+
+    <div class="col-md-7 col-lg-8">
+        <h1 class="mb-3">Добавить видеокарту</h1>
+        <form class="needs-validation" novalidate="" method="post" th:action="@{/adminPanel/addVideoCard}">
+            <div class="row g-3">
+                <div class="col-sm-6">
+                    <label for="description" class="form-label">Описание</label>
+                    <input name="description" type="text" class="form-control" id="description">
+                </div>
+
+                <div class="col-sm-6">
+                    <label for="interface" class="form-label">Интерфейс</label>
+                    <input name="interface" type="text" class="form-control" id="interface">
+                </div>
+
+                <div class="col-sm-6">
+                    <label for="video-chipset" class="form-label">Видеочипсет</label>
+                    <input name="videoChipset" type="text" class="form-control" id="video-chipset">
+                </div>
+
+                <div class="col-sm-6">
+                    <label for="frequency-chipset" class="form-label">Частота графического процессора</label>
+                    <input name="frequencyChipset" type="text" class="form-control" id="frequency-chipset">
+                </div>
+
+                <div class="col-sm-6">
+                    <label for="technical-process" class="form-label">Техпроцесс</label>
+                    <input name="technicalProcess" type="text" class="form-control" id="technical-process">
+                </div>
+
+                <div class="col-sm-6">
+                    <label for="amount-video-memory" class="form-label">Количество видеопамяти</label>
+                    <input name="amountVideoMemory" type="text" class="form-control" id="amount-video-memory">
+                </div>
+
+                <div class="col-sm-6">
+                    <label for="type-video-memory" class="form-label">Тип видеопамяти</label>
+                    <input name="typeVideoMemory" type="text" class="form-control" id="type-video-memory">
+                </div>
+
+                <div class="col-sm-6">
+                    <label for="frequency-video-memory" class="form-label">Частота видеопамяти</label>
+                    <input name="frequencyVideoMemory" type="text" class="form-control" id="frequency-video-memory">
+                </div>
+
+                <div class="col-sm-6">
+                    <label for="video-memory-bit-rate" class="form-label">Разрядность шины видеопамяти</label>
+                    <input name="videoMemoryBitRate" type="text" class="form-control" id="video-memory-bit-rate">
+                </div>
+
+                <div class="col-sm-6">
+                    <label for="technology-support" class="form-label">Техподдержка</label>
+                    <input name="technologySupport" type="text" class="form-control" id="technology-support">
+                </div>
+
+                <div class="col-sm-6">
+                    <label for="dvi-connectors" class="form-label">DVI соединения</label>
+                    <input name="dviConnectors" type="text" class="form-control" id="dvi-connectors">
+                </div>
+
+                <div class="col-sm-6">
+                    <label for="hdmi-connectors" class="form-label">HDMI соединения</label>
+                    <input name="hdmiConnectors" type="text" class="form-control" id="hdmi-connectors">
+                </div>
+
+                <div class="col-sm-6">
+                    <label for="hdmi-connectors-version" class="form-label">Версии HDMI соединений</label>
+                    <input name="hdmiConnectorsVersion" type="text" class="form-control" id="hdmi-connectors-version">
+                </div>
+
+                <div class="col-sm-6">
+                    <label for="additional-power-connectors" class="form-label">Раъем дополнительного питания</label>
+                    <input name="additionalPowerConnectors" type="text" class="form-control" id="additional-power-connectors">
+                </div>
+
+                <div class="col-sm-6">
+                    <label for="recommended-psu-power" class="form-label">Рекомендуемая производителем мощность
+                        БП</label>
+                    <input name="recommendedPsuPower" type="text" class="form-control" id="recommended-psu-power">
+                </div>
+
+                <div class="col-sm-6">
+                    <label for="guarantee" class="form-label">Гарантия</label>
+                    <input name="guarantee" type="text" class="form-control" id="guarantee">
+                </div>
+
+                <div class="col-sm-6">
+                    <label for="manufacturer" class="form-label">Производитель</label>
+                    <input name="manufacturer" type="text" class="form-control" id="manufacturer">
+                </div>
+
+                <div class="col-sm-6">
+                    <label for="preview-image" class="form-label">Превью изображение</label>
+                    <input name="previewImage" type="text" class="form-control" id="preview-image">
+                </div>
+
+                <div class="col-sm-6">
+                    <label for="main-image" class="form-label">Полное изображение</label>
+                    <input name="mainImage" type="text" class="form-control" id="main-image">
+                </div>
+            </div>
+            <button class="w-100 btn btn-primary btn-lg mt-5" type="submit">Добавить видеокарту</button>
+        </form>
+    </div>
+</div>
+
 </body>
 </html>
