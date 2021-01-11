@@ -20,7 +20,7 @@
 
     <div class="col-md-7 col-lg-8">
         <h1 class="mb-3">Добавить видеокарту</h1>
-        <form class="needs-validation" novalidate="" method="post" th:action="@{/adminPanel/addVideoCard}">
+        <form method="post" th:action="@{/adminPanel/addVideoCard}">
             <div class="row g-3">
                 <div class="col-sm-6">
                     <label for="description" class="form-label">Описание</label>
@@ -28,8 +28,13 @@
                 </div>
 
                 <div class="col-sm-6">
+                    <label for="cost" class="form-label">Цена</label>
+                    <input name="cost" type="text" class="form-control" id="cost">
+                </div>
+
+                <div class="col-sm-6">
                     <label for="interface" class="form-label">Интерфейс</label>
-                    <input name="interface" type="text" class="form-control" id="interface">
+                    <input name="inf" type="text" class="form-control" id="interface">
                 </div>
 
                 <div class="col-sm-6">
@@ -38,8 +43,8 @@
                 </div>
 
                 <div class="col-sm-6">
-                    <label for="frequency-chipset" class="form-label">Частота графического процессора</label>
-                    <input name="frequencyChipset" type="text" class="form-control" id="frequency-chipset">
+                    <label for="frequency-gpu" class="form-label">Частота графического процессора</label>
+                    <input name="frequencyGPU" type="text" class="form-control" id="frequency-gpu">
                 </div>
 
                 <div class="col-sm-6">
@@ -84,7 +89,7 @@
 
                 <div class="col-sm-6">
                     <label for="hdmi-connectors-version" class="form-label">Версии HDMI соединений</label>
-                    <input name="hdmiConnectorsVersion" type="text" class="form-control" id="hdmi-connectors-version">
+                    <input name="hdmiConnectorVersion" type="text" class="form-control" id="hdmi-connectors-version">
                 </div>
 
                 <div class="col-sm-6">
@@ -95,7 +100,7 @@
                 <div class="col-sm-6">
                     <label for="recommended-psu-power" class="form-label">Рекомендуемая производителем мощность
                         БП</label>
-                    <input name="recommendedPsuPower" type="text" class="form-control" id="recommended-psu-power">
+                    <input name="recommendedPSUPower" type="text" class="form-control" id="recommended-psu-power">
                 </div>
 
                 <div class="col-sm-6">

@@ -23,6 +23,7 @@ public class VideoCardRepositoryImpl implements VideoCardRepository {
 
 
     @Override
+    @Transactional
     public List<VideoCard> findAll() {
         CriteriaBuilder cb = em.getCriteriaBuilder();
         CriteriaQuery<VideoCard> cq = cb.createQuery(VideoCard.class);

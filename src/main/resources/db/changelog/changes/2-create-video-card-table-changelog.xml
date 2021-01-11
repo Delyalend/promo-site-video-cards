@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet author="danil" id="16-9-11-01-2021">
+        <createTable tableName="video_card" schemaName="public">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="cost" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="inf" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="video_chipset" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="frequency_gpu" type="FLOAT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="technical_process" type="FLOAT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="amount_video_memory" type="FLOAT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type_video_memory" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="frequency_video_memory" type="FLOAT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="video_memory_bit_rate" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="technology_support" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="dvi_connectors" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="hdmi_connectors" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="hdmi_connector_version" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="additional_power_connectors" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="recommended_psu_power" type="FLOAT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="guarantee" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="manufacturer" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="preview_image" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="main_image" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <rollback>
+            <dropTable tableName="video_card"/>
+        </rollback>
+    </changeSet>
+
+
+
+</databaseChangeLog>

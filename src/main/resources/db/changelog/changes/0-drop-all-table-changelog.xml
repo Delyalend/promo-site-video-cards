@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet author="danil" id="12-9-11-01-2020">
+        <preConditions onFail="MARK_RAN">
+            <tableExists schemaName="public" tableName="usr"/>
+        </preConditions>
+        <dropTable cascadeConstraints="true"
+                   schemaName="public"
+                   tableName="usr"/>
+    </changeSet>
+
+    <changeSet author="danil" id="13-9-11-01-2020">
+        <preConditions onFail="MARK_RAN">
+            <tableExists schemaName="public" tableName="usr_role"/>
+        </preConditions>
+        <dropTable cascadeConstraints="true"
+                   schemaName="public"
+                   tableName="usr_role"/>
+    </changeSet>
+
+    <changeSet author="danil" id="14-9-11-01-2020">
+        <preConditions onFail="MARK_RAN">
+            <tableExists schemaName="public" tableName="video_card"/>
+        </preConditions>
+        <dropTable cascadeConstraints="true"
+                   schemaName="public"
+                   tableName="video_card"/>
+    </changeSet>
+
+</databaseChangeLog>

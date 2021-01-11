@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet author="danil" id="16-9-11-01-2021">
+        <createTable tableName="usr" schemaName="public">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="username" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="active" type="boolean" defaultValueBoolean="true"/>
+        </createTable>
+        <rollback>
+            <dropTable tableName="usr"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet author="danil" id="17-9-11-01-2021">
+        <createTable tableName="usr_role" schemaName="public">
+            <column name="usr_id" type="int">
+                <constraints nullable="false" foreignKeyName="fk_usr_id" references="usr(id)"/>
+            </column>
+            <column name="roles" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <rollback>
+            <dropTable tableName="usr_role"/>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>

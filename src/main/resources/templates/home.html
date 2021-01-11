@@ -11,7 +11,14 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
         crossorigin="anonymous"></script>
+<script>
+    setCurVideoCardId = (videoCard) => {
 
+
+
+    }
+
+</script>
 <header>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div class="container-fluid">
@@ -41,87 +48,41 @@
     </nav>
 </header>
 
-<div class="container mt-5">
+<div class="container mt-5" id="main-container">
+
+
+
+
 
     <!--Заголовок страницы-->
     <div class="row">
         <div class="col-6 mx-auto mt-5">
             <div class="col-12 text-center">
-                <h1>Распродажа самых современных видеокарт</h1>
+                <h1 class="text-warning">Распродажа самых современных видеокарт</h1>
             </div>
             <div class="col-12 text-center">
-                <h3>Скидка до 70% на всю линейку!</h3>
+                <h3 class="text-warning">Скидка до 70% на всю линейку!</h3>
             </div>
         </div>
     </div>
 
     <!--Кратко о видюхах-->
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mt-5">
-        <div class="col">
-            <div class="card shadow-sm">
-                <img src="https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/geforce-rtx-turing/2080-ti/gallery/geforce-rtx-2080-ti-gallery-c.jpg"
-                     class="card-img-top">
-                <div class="card-body">
-                    <p class="card-text" style="color: black;">Название видеокарты, ГБ, цена</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-outline-secondary" style="color: black;">Подробнее</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card shadow-sm">
-                <img src="https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/geforce-rtx-turing/2080-ti/gallery/geforce-rtx-2080-ti-gallery-c.jpg"
-                     class="card-img-top">
-                <div class="card-body">
-                    <p class="card-text" style="color: black;">Название видеокарты, ГБ, цена</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-outline-secondary" style="color: black;">Подробнее</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card shadow-sm">
-                <img src="https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/geforce-rtx-turing/2080-ti/gallery/geforce-rtx-2080-ti-gallery-c.jpg"
-                     class="card-img-top">
-                <div class="card-body">
-                    <p class="card-text" style="color: black;">Название видеокарты, ГБ, цена</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-outline-secondary" style="color: black;">Подробнее</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card shadow-sm">
-                <img src="https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/geforce-rtx-turing/2080-ti/gallery/geforce-rtx-2080-ti-gallery-c.jpg"
-                     class="card-img-top">
-                <div class="card-body">
-                    <p class="card-text" style="color: black;">Название видеокарты, ГБ, цена</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-outline-secondary" style="color: black;">Подробнее</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card shadow-sm">
-                <img src="https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/geforce-rtx-turing/2080-ti/gallery/geforce-rtx-2080-ti-gallery-c.jpg"
-                     class="card-img-top">
-                <div class="card-body">
-                    <p class="card-text" style="color: black;">Название видеокарты, ГБ, цена</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-outline-secondary" style="color: black;">Подробнее</button>
+        <div th:each="videoCard : ${videoCards}">
+            <div class="col">
+                <div class="card shadow-sm">
+                    <img th:src="${videoCard.previewImage}"
+                         class="card-img-top">
+                    <div class="card-body">
+                        <p class="card-text" style="color: black;" th:text="${videoCard.videoChipset}">Название
+                            видеокарты</p>
+                        <p class="card-text" style="color: black;" th:text="${videoCard.amountVideoMemory}">ГБ</p>
+                        <p class="card-text" style="color: black;" th:text="${videoCard.cost}">Цена</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <a type="button" class="btn btn-sm btn-outline-secondary" style="color: black;"
+                                   th:href="|#vc${videoCard.id}|">Подробнее</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -135,7 +96,7 @@
     <div class="row" id="advantages">
         <div class="col-6 mx-auto mt-5">
             <div class="col-12 text-center">
-                <h1>Преимущества</h1>
+                <h1 class="text-warning">Преимущества</h1>
             </div>
         </div>
     </div>
@@ -164,164 +125,175 @@
     <div class="row mt-5" id="choice-video-cards">
         <div class="col-6 mx-auto">
             <div class="col-12 text-center">
-                <h1>Выберите видеокарту</h1>
+                <h1 class="text-warning">Выберите видеокарту</h1>
             </div>
         </div>
     </div>
 
     <!--Подробности о видеокартах-->
-    <div class="row mt-5">
-        <!--Фото-->
+    <div class="row mt-5" th:each="videoCard : ${videoCards}">
+
+        <div class="col-12">
+            <h2 class="text-success" th:text="${videoCard.videoChipset} + ',' +
+            ${videoCard.amountVideoMemory} + ' ГБ,' + ${videoCard.cost} + 'р.'">
+                videoChipset</h2>
+        </div>
+        <div class="col-7" th:id="|vc${videoCard.id}|">
+            <img th:src="${videoCard.mainImage}" class="d-block w-100" alt="...">
+        </div>
+
         <div class="col">
-            <img src="https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/geforce-rtx-turing/2080-ti/gallery/geforce-rtx-2080-ti-gallery-b-641-u.jpg"
-                 class="d-block w-100" alt="...">
-
-<!--            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">-->
-<!--                <div class="carousel-inner">-->
-<!--                    <div class="carousel-item active">-->
-<!--                        <img src="https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/geforce-rtx-turing/2080-ti/gallery/geforce-rtx-2080-ti-gallery-b-641-u.jpg"-->
-<!--                             class="d-block w-100" alt="...">-->
-<!--                    </div>-->
-<!--                    <div class="carousel-item">-->
-<!--                        <img src="https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/geforce-rtx-turing/2080-ti/gallery/geforce-rtx-2080-ti-gallery-b-641-u.jpg"-->
-<!--                             class="d-block w-100" alt="...">-->
-<!--                    </div>-->
-<!--                    <div class="carousel-item">-->
-<!--                        <img src="https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/geforce-rtx-turing/2080-ti/gallery/geforce-rtx-2080-ti-gallery-b-641-u.jpg"-->
-<!--                             class="d-block w-100" alt="...">-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">-->
-<!--                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
-<!--                    <span class="visually-hidden">Previous</span>-->
-<!--                </a>-->
-<!--                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">-->
-<!--                    <span class="carousel-control-next-icon" aria-hidden="true"></span>-->
-<!--                    <span class="visually-hidden">Next</span>-->
-<!--                </a>-->
-<!--            </div> -->
+            <p scope="col" class="text-light">Интерфейс</p>
+            <p scope="col" class="text-light">Частота ГПУ</p>
+            <p scope="col" class="text-light">Рекомендуемое мощность БП</p>
+            <p scope="col" class="text-light">Гарантия</p>
+            <p scope="col" class="text-light">Техпроцесс</p>
+            <p scope="col" class="text-light">Тип видеопамяти</p>
+            <p scope="col" class="text-light">Частота видеопамяти</p>
+            <p scope="col" class="text-light">Производитель</p>
+            <p scope="col" class="text-light">Разрядность шины видеопамяти</p>
+            <p scope="col" class="text-light">Техподдержка</p>
+            <p scope="col" class="text-light">DVI разъемы</p>
+            <p scope="col" class="text-light">HDMI разъемы</p>
+            <p scope="col" class="text-light">Версия HDMI разъема</p>
+            <p scope="col" class="text-light">Дополнительные разъемы питания</p>
         </div>
-        <!--Информация-->
+
         <div class="col">
-            <table class="table" style="color: white">
-                <thead class="table-dark">
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-                </thead>
-                <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2">Larry the Bird</td>
-                    <td>@twitter</td>
-                </tr>
-                </tbody>
-            </table>
+            <p th:text="${videoCard.inf}">inf</p>
+            <p th:text="${videoCard.frequencyGPU}">frequencyGPU</p>
+            <p th:text="${videoCard.recommendedPSUPower}">recommendedPSUPower</p>
+            <p th:text="${videoCard.guarantee}">guarantee</p>
+            <p th:text="${videoCard.amountVideoMemory}">cost</p>
+            <p th:text="${videoCard.typeVideoMemory}">inf</p>
+            <p th:text="${videoCard.frequencyVideoMemory}">frequencyGPU</p>
+            <p th:text="${videoCard.manufacturer}">manufacturer</p>
+            <p th:text="${videoCard.videoMemoryBitRate}">videoMemoryBitRate</p>
+            <p th:text="${videoCard.technologySupport}">technologySupport</p>
+            <p th:text="${videoCard.dviConnectors}">dviConnectors</p>
+            <p th:text="${videoCard.hdmiConnectors}">hdmiConnectors</p>
+            <p th:text="${videoCard.hdmiConnectorVersion}">hdmiConnectorVersion</p>
+            <p th:text="${videoCard.additionalPowerConnectors}">additionalPowerConnectors</p>
+        </div>
+
+        <div class="col-12">
+            <div class="modal fade" th:id="'modal'+${videoCard.id}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content" style="color: black;">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+
+                            <label th:text="'Купить '+ ${videoCard.videoChipset} + ' за ' +  ${videoCard.cost}">Text</label>
+
+                            <label th:for="'fio'+${videoCard.id}" class="form-label">ФИО</label>
+                            <input  type="text" class="form-control" th:id="'fio'+${videoCard.id}">
+
+                            <label th:for="'number'+${videoCard.id}" class="form-label">Номер телефона</label>
+                            <input  type="text" class="form-control" th:id="'number'+${videoCard.id}">
+
+                            <label th:for="'address'+${videoCard.id}" class="form-label">Адрес</label>
+                            <input  type="text" class="form-control" th:id="'address'+${videoCard.id}">
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+                            <button type="button" class="btn btn-primary">Заказать</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" th:attr="data-bs-target='#modal'+${videoCard.id}">
+                Заказать
+            </button>
         </div>
 
     </div>
+    <div class="col-12">
+        <hr style="height:5px;" class="mt-2">
+    </div>
+</div>
 
-    <!--Как купить-->
-
-    <div class="row mt-5" id="how-to-buy">
-        <div class="col-6 mx-auto">
-            <div class="col-12 text-center">
-                <h1>Как купить?</h1>
-            </div>
+<!--Как купить-->
+<div class="row mt-5" id="how-to-buy">
+    <div class="col-6 mx-auto">
+        <div class="col-12 text-center">
+            <h1 class="text-warning">Как купить?</h1>
         </div>
     </div>
-    <div class="row mt-5">
-        <div class="row">
-            <div class="col text-center">
-                <img src="https://svgshare.com/i/Syd.svg"
-                     style="width:100px;">
-                <h4>Выбираете видеокарту</h4>
-            </div>
-            <div class="col text-center">
-                <img src="https://svgshare.com/i/Sxv.svg"
-                     style="width:100px;">
-                <h4>Оставляете заявку на сайте</h4>
-            </div>
-            <div class="col text-center">
-                <img src="https://svgshare.com/i/T02.svg"
-                     style="width:100px;">
-                <h4>Наш менеджер свяжется с Вами, уточняет детали заказа</h4>
-            </div>
+</div>
+<div class="row mt-5">
+    <div class="row">
+        <div class="col text-center">
+            <img src="https://svgshare.com/i/Syd.svg"
+                 style="width:100px;">
+            <h4>Выбираете видеокарту</h4>
         </div>
-        <div class="row">
-            <div class="col text-center">
-                <img src="https://svgshare.com/i/T0C.svg"
-                     style="width:100px;">
-                <h4>Доставляем в любую точку России и СНГ</h4>
-            </div>
-            <div class="col text-center">
-                <img src="https://svgshare.com/i/Szp.svg"
-                     style="width:100px;">
-                <h4>Оплачиваете при получении</h4>
-            </div>
-            <div class="col text-center">
-                <img src="https://svgshare.com/i/Szq.svg"
-                     style="width:100px;">
-                <h4>Вы довольны покупкой</h4>
-            </div>
+        <div class="col text-center">
+            <img src="https://svgshare.com/i/Sxv.svg"
+                 style="width:100px;">
+            <h4>Оставляете заявку на сайте</h4>
         </div>
-
-
-
-
+        <div class="col text-center">
+            <img src="https://svgshare.com/i/T02.svg"
+                 style="width:100px;">
+            <h4>Наш менеджер свяжется с Вами, уточняет детали заказа</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col text-center">
+            <img src="https://svgshare.com/i/T0C.svg"
+                 style="width:100px;">
+            <h4>Доставляем в любую точку России и СНГ</h4>
+        </div>
+        <div class="col text-center">
+            <img src="https://svgshare.com/i/Szp.svg"
+                 style="width:100px;">
+            <h4>Оплачиваете при получении</h4>
+        </div>
+        <div class="col text-center">
+            <img src="https://svgshare.com/i/Szq.svg"
+                 style="width:100px;">
+            <h4>Вы довольны покупкой</h4>
+        </div>
     </div>
 
-    <!--Подвал-->
-    <footer class="pt-4 my-md-5 pt-md-5 border-top" id="footer">
-        <div class="row">
-            <div class="col-12 col-md">
-                <img class="mb-2" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="24" height="19">
-                <small class="d-block mb-3 text-muted">© 2017-2020</small>
-            </div>
-            <div class="col-6 col-md">
-                <h5>Features</h5>
-                <ul class="list-unstyled text-small">
-                    <li><a class="link-secondary" href="#">Cool stuff</a></li>
-                    <li><a class="link-secondary" href="#">Random feature</a></li>
-                    <li><a class="link-secondary" href="#">Team feature</a></li>
-                    <li><a class="link-secondary" href="#">Stuff for developers</a></li>
-                    <li><a class="link-secondary" href="#">Another one</a></li>
-                    <li><a class="link-secondary" href="#">Last time</a></li>
-                </ul>
-            </div>
-            <div class="col-6 col-md">
-                <h5>Resources</h5>
-                <ul class="list-unstyled text-small">
-                    <li><a class="link-secondary" href="#">Resource</a></li>
-                    <li><a class="link-secondary" href="#">Resource name</a></li>
-                    <li><a class="link-secondary" href="#">Another resource</a></li>
-                    <li><a class="link-secondary" href="#">Final resource</a></li>
-                </ul>
-            </div>
-            <div class="col-6 col-md">
-                <h5>About</h5>
-                <ul class="list-unstyled text-small">
-                    <li><a class="link-secondary" href="#">Team</a></li>
-                    <li><a class="link-secondary" href="#">Locations</a></li>
-                    <li><a class="link-secondary" href="#">Privacy</a></li>
-                    <li><a class="link-secondary" href="#">Terms</a></li>
-                </ul>
-            </div>
+
+</div>
+
+<!--Подвал-->
+<footer class="container pt-4 my-md-5 pt-md-5 border-top" id="footer">
+    <div class="row">
+        <div class="col-5">
+            <h5>О нас</h5>
+            <ul class="list-unstyled text-small">
+                <li><a class="link-secondary" href="#">Контакты</a></li>
+                <li><a class="link-secondary" href="#">Адреса магазинов</a></li>
+                <li><a class="link-secondary" href="#">О производителе</a></li>
+            </ul>
         </div>
-    </footer>
+        <div class="col-5">
+            <h5>Сообщество и новости</h5>
+            <ul class="list-unstyled text-small">
+                <li><a class="link-secondary" href="#">Новости</a></li>
+                <li><a class="link-secondary" href="#">Технические руководства</a></li>
+                <li><a class="link-secondary" href="#">Форум</a></li>
+            </ul>
+        </div>
+        <div class="col-2">
+            <h5>Поддержка</h5>
+            <ul class="list-unstyled text-small">
+                <li><a class="link-secondary" href="#">Драйверы</a></li>
+                <li><a class="link-secondary" href="#">Форум поддержки</a></li>
+                <li><a class="link-secondary" href="#">Поддержка при покупке</a></li>
+                <li><a class="link-secondary" href="#">Техническая поддержка</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
 </div>
 
 </body>
