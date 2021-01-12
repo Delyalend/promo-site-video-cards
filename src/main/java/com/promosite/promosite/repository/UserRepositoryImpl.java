@@ -4,6 +4,7 @@ import com.promosite.promosite.model.Role;
 import com.promosite.promosite.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
@@ -15,6 +16,7 @@ import javax.transaction.Transactional;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+
 
 @Component
 public class UserRepositoryImpl implements UserRepository {

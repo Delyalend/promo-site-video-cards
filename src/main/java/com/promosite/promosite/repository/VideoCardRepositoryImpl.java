@@ -1,6 +1,5 @@
 package com.promosite.promosite.repository;
 
-import com.promosite.promosite.model.Role;
 import com.promosite.promosite.model.VideoCard;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -11,7 +10,6 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import javax.transaction.Transactional;
-import java.util.Collections;
 import java.util.List;
 
 @Component
@@ -19,7 +17,6 @@ public class VideoCardRepositoryImpl implements VideoCardRepository {
 
     @Autowired
     private EntityManager em;
-
 
 
     @Override

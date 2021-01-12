@@ -12,8 +12,11 @@ import java.util.Optional;
 @Service
 public class UserServiceImpl implements UserService {
 
-    @Autowired
     private UserRepository userRepo;
+
+    public UserServiceImpl(UserRepository userRepo) {
+        this.userRepo = userRepo;
+    }
 
     @Override
     public User findByUsername(String username) throws Exception {

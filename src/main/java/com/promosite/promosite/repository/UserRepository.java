@@ -1,6 +1,7 @@
 package com.promosite.promosite.repository;
 
 import com.promosite.promosite.model.User;
+import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
